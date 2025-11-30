@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import NavLink from '../ui/NavLink';
-import { useAuth } from '@/store/authStore';
+import useAuth from '@/hooks/useAuth';
+
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -72,17 +73,37 @@ export default function Header() {
             ) : (
               <>
                 <Link
-                  href="/login"
+                  href="/auth/login"
                   className="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 border border-gray-200 hover:border-gray-300 transition-colors"
                 >
                   Login
                 </Link>
-                <Link
-                  href="/signup"
-                  className="px-5 py-2 rounded-lg bg-primary hover:bg-primary-light text-white text-sm font-semibold shadow-md transition-all"
-                >
-                  Sign Up
-                </Link>
+                <div className="relative group">
+                  <button className="px-5 py-2 rounded-lg bg-primary hover:bg-primary-dark text-white text-sm font-semibold shadow-md transition-all flex items-center gap-1">
+                    Sign Up
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10">
+                    <div className="py-2">
+                      <Link
+                        href="/auth/signup/volunteer"
+                        className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors"
+                      >
+                        <div className="font-semibold">As Volunteer</div>
+                        <div className="text-xs text-gray-500">Find opportunities</div>
+                      </Link>
+                      <Link
+                        href="/auth/signup/ngo"
+                        className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-secondary/10 hover:text-secondary transition-colors"
+                      >
+                        <div className="font-semibold">As NGO</div>
+                        <div className="text-xs text-gray-500">Post opportunities</div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </>
             )}
           </div>
@@ -183,17 +204,26 @@ export default function Header() {
                 ) : (
                   <>
                     <Link
-                      href="/login"
+                      href="/auth/login"
                       className="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 border border-gray-200 transition-colors"
                     >
                       Login
                     </Link>
-                    <Link
-                      href="/signup"
-                      className="px-3 py-2 rounded-lg bg-secondary hover:bg-secondary-dark text-white text-sm font-semibold text-center transition-all"
-                    >
-                      Sign Up
-                    </Link>
+                    <div className="space-y-2">
+                      <p className="px-3 text-xs font-semibold text-gray-500 uppercase">Sign Up As</p>
+                      <Link
+                        href="/auth/signup/volunteer"
+                        className="block px-3 py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-white text-sm font-semibold text-center transition-all"
+                      >
+                        Volunteer
+                      </Link>
+                      <Link
+                        href="/auth/signup/ngo"
+                        className="block px-3 py-2.5 rounded-lg bg-secondary hover:bg-secondary-dark text-white text-sm font-semibold text-center transition-all"
+                      >
+                        NGO / Organization
+                      </Link>
+                    </div>
                   </>
                 )}
               </div>

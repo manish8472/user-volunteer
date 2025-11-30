@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative bg-gray-50 py-20 sm:py-32 overflow-hidden">
+      <section className="relative bg-gray-50 py-4 md:py-0 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}

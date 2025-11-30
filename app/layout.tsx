@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import AppShell from "@/components/layout/AppShell";
 import AuthDebugger from "@/components/debug/AuthDebugger";
+import { Providers } from "@/components/providers/Providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,11 +34,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -50,8 +52,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <AppShell>{children}</AppShell>
-        {isDevelopment && <AuthDebugger />}
+        <Providers>
+          <AppShell>{children}</AppShell>
+          {isDevelopment && <AuthDebugger />}
+        </Providers>
       </body>
     </html>
   );

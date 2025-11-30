@@ -1,12 +1,12 @@
 'use client';
 
-import { useAuth } from '@/store/authStore';
+import { useAuthStore } from '@/stores/authStore';
 
 export default function AuthDebugger() {
-  const { user, isAuthenticated, login, logout, setRole } = useAuth();
+  const { user, isAuthenticated, clearAuth, setAuth } = useAuthStore();
 
   const loginAsVolunteer = () => {
-    login({
+    setAuth('debug-token-volunteer', {
       id: '1',
       name: 'John Volunteer',
       email: 'john@example.com',
@@ -15,7 +15,7 @@ export default function AuthDebugger() {
   };
 
   const loginAsNGO = () => {
-    login({
+    setAuth('debug-token-ngo', {
       id: '2',
       name: 'NGO Admin',
       email: 'admin@ngo.org',
@@ -39,7 +39,7 @@ export default function AuthDebugger() {
             </span>
           </div>
           <button
-            onClick={logout}
+            onClick={clearAuth}
             className="w-full px-3 py-2 text-xs rounded-lg bg-danger hover:bg-danger-light text-white font-medium transition-colors"
           >
             Logout
