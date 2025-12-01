@@ -1,0 +1,1154 @@
+
+> user-clients@0.1.0 test C:\Users\manis\Videos\Project1\user-clients
+> jest "profile-save.test.tsx" "--no-coverage"
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+  console.error
+    Error loading profile: Error: API Error
+        at Object.<anonymous> (C:\Users\manis\Videos\Project1\user-clients\__tests__\integration\profile-save.test.tsx:134:39)
+        at Promise.finally.completed (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at runNextTicks (node:internal/process/task_queues:60:5)
+        at processTimers (node:internal/timers:511:9)
+        at _runTest (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-runner@30.2.0\node_modules\jest-runner\build\index.js:275:16)
+        at runTest (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-runner@30.2.0\node_modules\jest-runner\build\index.js:343:7)
+
+    [0m [90m 111 |[39m       })[33m;[39m
+     [90m 112 |[39m     } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 113 |[39m       console[33m.[39merror([32m'Error loading profile:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m               [31m[1m^[22m[39m
+     [90m 114 |[39m       toast[33m.[39merror([32m'Failed to load profile'[39m)[33m;[39m
+     [90m 115 |[39m     } [36mfinally[39m {
+     [90m 116 |[39m       setLoading([36mfalse[39m)[33m;[39m[0m
+
+      at error (app/dashboard/volunteer/profile/page.tsx:113:15)
+
+  console.error
+    Error saving profile: Error: Save failed
+        at Object.<anonymous> (C:\Users\manis\Videos\Project1\user-clients\__tests__\integration\profile-save.test.tsx:214:47)
+        at Promise.finally.completed (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at _runTest (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at _runTestsForDescribeBlock (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at _runTestsForDescribeBlock (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:857:11)
+        at run (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-circus@30.2.0\node_modules\jest-circus\build\runner.js:101:19)
+        at runTestInternal (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-runner@30.2.0\node_modules\jest-runner\build\index.js:275:16)
+        at runTest (C:\Users\manis\Videos\Project1\user-clients\node_modules\.pnpm\jest-runner@30.2.0\node_modules\jest-runner\build\index.js:343:7)
+
+    [0m [90m 129 |[39m       toast[33m.[39msuccess([32m'Profile updated successfully!'[39m)[33m;[39m
+     [90m 130 |[39m     } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 131 |[39m       console[33m.[39merror([32m'Error saving profile:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m               [31m[1m^[22m[39m
+     [90m 132 |[39m       toast[33m.[39merror([32m'Failed to save profile. Please try again.'[39m)[33m;[39m
+     [90m 133 |[39m     } [36mfinally[39m {
+     [90m 134 |[39m       setSaving([36mfalse[39m)[33m;[39m[0m
+
+      at error (app/dashboard/volunteer/profile/page.tsx:131:15)
+
+FAIL __tests__/integration/profile-save.test.tsx (14.372 s)
+  Volunteer Profile Save Flow Integration
+    Profile Loading
+      ΓêÜ loads and displays profile data (139 ms)
+      ├ù displays profile completeness indicator (1036 ms)
+      ├ù shows suggestions for incomplete fields (1029 ms)
+      ΓêÜ handles loading error (163 ms)
+    Profile Update
+      ΓêÜ saves profile changes successfully (1120 ms)
+      ΓêÜ updates skills using TagInput (860 ms)
+      ΓêÜ handles save error (217 ms)
+      ΓêÜ shows loading state while saving (388 ms)
+    Resume Upload
+      ΓêÜ uploads resume successfully (313 ms)
+      ├ù validates PDF file type (1031 ms)
+      ├ù validates file size (max 5MB) (1013 ms)
+      ├ù handles upload error (1018 ms)
+    Avatar Upload
+      ΓêÜ uploads avatar successfully (132 ms)
+      ├ù validates image file type (1099 ms)
+      ΓêÜ validates image size (max 2MB) (232 ms)
+    Profile Completeness
+      ├ù updates completeness indicator after save (1022 ms)
+
+  ΓùÅ Volunteer Profile Save Flow Integration ΓÇ║ Profile Loading ΓÇ║ displays profile completeness indicator
+
+    Unable to find an element with the text: 90%. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    <body>
+      <div>
+        <div
+          class="min-h-screen bg-background p-8"
+        >
+          <div
+            class="max-w-4xl mx-auto space-y-6"
+          >
+            <div>
+              <h1
+                class="text-3xl font-bold text-foreground"
+              >
+                My Profile
+              </h1>
+              <p
+                class="text-muted-foreground mt-2"
+              >
+                Manage your volunteer profile and preferences
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-1 lg:grid-cols-3 gap-6"
+            >
+              <div
+                class="space-y-6"
+              >
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base"
+                    >
+                      Profile Picture
+                    </h3>
+                  </div>
+                  <div
+                    class="p-6 pt-0 space-y-4"
+                  >
+                    <div
+                      class="flex flex-col items-center"
+                    >
+                      <div
+                        class="w-32 h-32 rounded-full bg-muted flex items-center justify-center border-4 border-border"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-user w-16 h-16 text-muted-foreground"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+                          />
+                          <circle
+                            cx="12"
+                            cy="7"
+                            r="4"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <input
+                        accept="image/*"
+                        class="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm hidden"
+                        id="avatar"
+                        type="file"
+                      />
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-upload w-4 h-4 mr-2"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 3v12"
+                          />
+                          <path
+                            d="m17 8-5-5-5 5"
+                          />
+                          <path
+                            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                          />
+                        </svg>
+                        Upload Photo
+                      </button>
+                      <p
+                        class="text-xs text-muted-foreground mt-2"
+                      >
+                        JPG, PNG up to 2MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base flex items-center gap-2"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="lucide lucide-file-text w-4 h-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                       ...
+
+      111 |       render(<VolunteerProfilePage />);
+      112 |
+    > 113 |       await waitFor(() => {
+          |                    ^
+      114 |         expect(screen.getByText('90%')).toBeInTheDocument();
+      115 |         expect(screen.getByText(/90% complete/i)).toBeInTheDocument();
+      116 |       });
+
+      at waitForWrapper (node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:163:27)
+      at Object.<anonymous> (__tests__/integration/profile-save.test.tsx:113:20)
+
+  ΓùÅ Volunteer Profile Save Flow Integration ΓÇ║ Profile Loading ΓÇ║ shows suggestions for incomplete fields
+
+    Unable to find an element with the text: /Upload your resume/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    <body>
+      <div>
+        <div
+          class="min-h-screen bg-background p-8"
+        >
+          <div
+            class="max-w-4xl mx-auto space-y-6"
+          >
+            <div>
+              <h1
+                class="text-3xl font-bold text-foreground"
+              >
+                My Profile
+              </h1>
+              <p
+                class="text-muted-foreground mt-2"
+              >
+                Manage your volunteer profile and preferences
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-1 lg:grid-cols-3 gap-6"
+            >
+              <div
+                class="space-y-6"
+              >
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base"
+                    >
+                      Profile Picture
+                    </h3>
+                  </div>
+                  <div
+                    class="p-6 pt-0 space-y-4"
+                  >
+                    <div
+                      class="flex flex-col items-center"
+                    >
+                      <div
+                        class="w-32 h-32 rounded-full bg-muted flex items-center justify-center border-4 border-border"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-user w-16 h-16 text-muted-foreground"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+                          />
+                          <circle
+                            cx="12"
+                            cy="7"
+                            r="4"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <input
+                        accept="image/*"
+                        class="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm hidden"
+                        id="avatar"
+                        type="file"
+                      />
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-upload w-4 h-4 mr-2"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 3v12"
+                          />
+                          <path
+                            d="m17 8-5-5-5 5"
+                          />
+                          <path
+                            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                          />
+                        </svg>
+                        Upload Photo
+                      </button>
+                      <p
+                        class="text-xs text-muted-foreground mt-2"
+                      >
+                        JPG, PNG up to 2MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base flex items-center gap-2"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="lucide lucide-file-text w-4 h-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                       ...
+
+      126 |       render(<VolunteerProfilePage />);
+      127 |
+    > 128 |       await waitFor(() => {
+          |                    ^
+      129 |         expect(screen.getByText(/Upload your resume/i)).toBeInTheDocument();
+      130 |       });
+      131 |     });
+
+      at waitForWrapper (node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:163:27)
+      at Object.<anonymous> (__tests__/integration/profile-save.test.tsx:128:20)
+
+  ΓùÅ Volunteer Profile Save Flow Integration ΓÇ║ Resume Upload ΓÇ║ validates PDF file type
+
+    Unable to find an element with the text: /Upload Resume/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    <body>
+      <div>
+        <div
+          class="min-h-screen bg-background p-8"
+        >
+          <div
+            class="max-w-4xl mx-auto space-y-6"
+          >
+            <div>
+              <h1
+                class="text-3xl font-bold text-foreground"
+              >
+                My Profile
+              </h1>
+              <p
+                class="text-muted-foreground mt-2"
+              >
+                Manage your volunteer profile and preferences
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-1 lg:grid-cols-3 gap-6"
+            >
+              <div
+                class="space-y-6"
+              >
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base"
+                    >
+                      Profile Picture
+                    </h3>
+                  </div>
+                  <div
+                    class="p-6 pt-0 space-y-4"
+                  >
+                    <div
+                      class="flex flex-col items-center"
+                    >
+                      <div
+                        class="w-32 h-32 rounded-full bg-muted flex items-center justify-center border-4 border-border"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-user w-16 h-16 text-muted-foreground"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+                          />
+                          <circle
+                            cx="12"
+                            cy="7"
+                            r="4"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <input
+                        accept="image/*"
+                        class="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm hidden"
+                        id="avatar"
+                        type="file"
+                      />
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-upload w-4 h-4 mr-2"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 3v12"
+                          />
+                          <path
+                            d="m17 8-5-5-5 5"
+                          />
+                          <path
+                            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                          />
+                        </svg>
+                        Upload Photo
+                      </button>
+                      <p
+                        class="text-xs text-muted-foreground mt-2"
+                      >
+                        JPG, PNG up to 2MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base flex items-center gap-2"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="lucide lucide-file-text w-4 h-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                       ...
+
+      293 |       render(<VolunteerProfilePage />);
+      294 |
+    > 295 |       await waitFor(() => {
+          |                    ^
+      296 |         expect(screen.getByText(/Upload Resume/i)).toBeInTheDocument();
+      297 |       });
+      298 |
+
+      at waitForWrapper (node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:163:27)
+      at Object.<anonymous> (__tests__/integration/profile-save.test.tsx:295:20)
+
+  ΓùÅ Volunteer Profile Save Flow Integration ΓÇ║ Resume Upload ΓÇ║ validates file size (max 5MB)
+
+    Unable to find an element with the text: /Upload Resume/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    <body>
+      <div>
+        <div
+          class="min-h-screen bg-background p-8"
+        >
+          <div
+            class="max-w-4xl mx-auto space-y-6"
+          >
+            <div>
+              <h1
+                class="text-3xl font-bold text-foreground"
+              >
+                My Profile
+              </h1>
+              <p
+                class="text-muted-foreground mt-2"
+              >
+                Manage your volunteer profile and preferences
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-1 lg:grid-cols-3 gap-6"
+            >
+              <div
+                class="space-y-6"
+              >
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base"
+                    >
+                      Profile Picture
+                    </h3>
+                  </div>
+                  <div
+                    class="p-6 pt-0 space-y-4"
+                  >
+                    <div
+                      class="flex flex-col items-center"
+                    >
+                      <div
+                        class="w-32 h-32 rounded-full bg-muted flex items-center justify-center border-4 border-border"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-user w-16 h-16 text-muted-foreground"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+                          />
+                          <circle
+                            cx="12"
+                            cy="7"
+                            r="4"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <input
+                        accept="image/*"
+                        class="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm hidden"
+                        id="avatar"
+                        type="file"
+                      />
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-upload w-4 h-4 mr-2"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 3v12"
+                          />
+                          <path
+                            d="m17 8-5-5-5 5"
+                          />
+                          <path
+                            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                          />
+                        </svg>
+                        Upload Photo
+                      </button>
+                      <p
+                        class="text-xs text-muted-foreground mt-2"
+                      >
+                        JPG, PNG up to 2MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base flex items-center gap-2"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="lucide lucide-file-text w-4 h-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                       ...
+
+      319 |       render(<VolunteerProfilePage />);
+      320 |
+    > 321 |       await waitFor(() => {
+          |                    ^
+      322 |         expect(screen.getByText(/Upload Resume/i)).toBeInTheDocument();
+      323 |       });
+      324 |
+
+      at waitForWrapper (node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:163:27)
+      at Object.<anonymous> (__tests__/integration/profile-save.test.tsx:321:20)
+
+  ΓùÅ Volunteer Profile Save Flow Integration ΓÇ║ Resume Upload ΓÇ║ handles upload error
+
+    Unable to find an element with the text: /Upload Resume/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    <body>
+      <div>
+        <div
+          class="min-h-screen bg-background p-8"
+        >
+          <div
+            class="max-w-4xl mx-auto space-y-6"
+          >
+            <div>
+              <h1
+                class="text-3xl font-bold text-foreground"
+              >
+                My Profile
+              </h1>
+              <p
+                class="text-muted-foreground mt-2"
+              >
+                Manage your volunteer profile and preferences
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-1 lg:grid-cols-3 gap-6"
+            >
+              <div
+                class="space-y-6"
+              >
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base"
+                    >
+                      Profile Picture
+                    </h3>
+                  </div>
+                  <div
+                    class="p-6 pt-0 space-y-4"
+                  >
+                    <div
+                      class="flex flex-col items-center"
+                    >
+                      <div
+                        class="w-32 h-32 rounded-full bg-muted flex items-center justify-center border-4 border-border"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-user w-16 h-16 text-muted-foreground"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+                          />
+                          <circle
+                            cx="12"
+                            cy="7"
+                            r="4"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <input
+                        accept="image/*"
+                        class="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm hidden"
+                        id="avatar"
+                        type="file"
+                      />
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-upload w-4 h-4 mr-2"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 3v12"
+                          />
+                          <path
+                            d="m17 8-5-5-5 5"
+                          />
+                          <path
+                            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                          />
+                        </svg>
+                        Upload Photo
+                      </button>
+                      <p
+                        class="text-xs text-muted-foreground mt-2"
+                      >
+                        JPG, PNG up to 2MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base flex items-center gap-2"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="lucide lucide-file-text w-4 h-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                       ...
+
+      346 |       render(<VolunteerProfilePage />);
+      347 |
+    > 348 |       await waitFor(() => {
+          |                    ^
+      349 |         expect(screen.getByText(/Upload Resume/i)).toBeInTheDocument();
+      350 |       });
+      351 |
+
+      at waitForWrapper (node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:163:27)
+      at Object.<anonymous> (__tests__/integration/profile-save.test.tsx:348:20)
+
+  ΓùÅ Volunteer Profile Save Flow Integration ΓÇ║ Avatar Upload ΓÇ║ validates image file type
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: "Please upload an image file"
+
+    Number of calls: 0
+
+    Ignored nodes: comments, script, style
+    <html>
+      <head />
+      <body>
+        <div>
+          <div
+            class="min-h-screen bg-background p-8"
+          >
+            <div
+              class="max-w-4xl mx-auto space-y-6"
+            >
+              <div>
+                <h1
+                  class="text-3xl font-bold text-foreground"
+                >
+                  My Profile
+                </h1>
+                <p
+                  class="text-muted-foreground mt-2"
+                >
+                  Manage your volunteer profile and preferences
+                </p>
+              </div>
+              <div
+                class="grid grid-cols-1 lg:grid-cols-3 gap-6"
+              >
+                <div
+                  class="space-y-6"
+                >
+                  <div
+                    class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                  >
+                    <div
+                      class="flex flex-col space-y-1.5 p-6"
+                    >
+                      <h3
+                        class="font-semibold tracking-tight text-base"
+                      >
+                        Profile Picture
+                      </h3>
+                    </div>
+                    <div
+                      class="p-6 pt-0 space-y-4"
+                    >
+                      <div
+                        class="flex flex-col items-center"
+                      >
+                        <div
+                          class="w-32 h-32 rounded-full bg-muted flex items-center justify-center border-4 border-border"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="lucide lucide-user w-16 h-16 text-muted-foreground"
+                            fill="none"
+                            height="24"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+                            />
+                            <circle
+                              cx="12"
+                              cy="7"
+                              r="4"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <input
+                          accept="image/*"
+                          class="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm hidden"
+                          id="avatar"
+                          type="file"
+                        />
+                        <button
+                          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="lucide lucide-upload w-4 h-4 mr-2"
+                            fill="none"
+                            height="24"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12 3v12"
+                            />
+                            <path
+                              d="m17 8-5-5-5 5"
+                            />
+                            <path
+                              d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                            />
+                          </svg>
+                          Upload Photo
+                        </button>
+                        <p
+                          class="text-xs text-muted-foreground mt-2"
+                        >
+                          JPG, PNG up to 2MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                  >
+                    <div
+                      class="flex flex-col space-y-1.5 p-6"
+                    >
+                      <h3
+                        class="font-semibold tracking-tight text-base flex items-center gap-2"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-file-text w-4 h-4"
+                          fill="none"
+                          height="24"
+                          stro...
+
+      416 |
+      417 |         await waitFor(() => {
+    > 418 |           expect(toast.error).toHaveBeenCalledWith('Please upload an image file');
+          |                               ^
+      419 |         });
+      420 |       }
+      421 |     });
+
+      at toHaveBeenCalledWith (__tests__/integration/profile-save.test.tsx:418:31)
+      at runWithExpensiveErrorDiagnosticsDisabled (node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:47:12)
+      at checkCallback (node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:124:77)
+      at checkRealTimersCallback (node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:118:16)
+      at Timeout.task [as _onTimeout] (node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/Window.js:579:19)
+
+  ΓùÅ Volunteer Profile Save Flow Integration ΓÇ║ Profile Completeness ΓÇ║ updates completeness indicator after save
+
+    Unable to find an element with the text: 80%. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    <body>
+      <div>
+        <div
+          class="min-h-screen bg-background p-8"
+        >
+          <div
+            class="max-w-4xl mx-auto space-y-6"
+          >
+            <div>
+              <h1
+                class="text-3xl font-bold text-foreground"
+              >
+                My Profile
+              </h1>
+              <p
+                class="text-muted-foreground mt-2"
+              >
+                Manage your volunteer profile and preferences
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-1 lg:grid-cols-3 gap-6"
+            >
+              <div
+                class="space-y-6"
+              >
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base"
+                    >
+                      Profile Picture
+                    </h3>
+                  </div>
+                  <div
+                    class="p-6 pt-0 space-y-4"
+                  >
+                    <div
+                      class="flex flex-col items-center"
+                    >
+                      <div
+                        class="w-32 h-32 rounded-full bg-muted flex items-center justify-center border-4 border-border"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-user w-16 h-16 text-muted-foreground"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+                          />
+                          <circle
+                            cx="12"
+                            cy="7"
+                            r="4"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <input
+                        accept="image/*"
+                        class="h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm hidden"
+                        id="avatar"
+                        type="file"
+                      />
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="lucide lucide-upload w-4 h-4 mr-2"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 3v12"
+                          />
+                          <path
+                            d="m17 8-5-5-5 5"
+                          />
+                          <path
+                            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                          />
+                        </svg>
+                        Upload Photo
+                      </button>
+                      <p
+                        class="text-xs text-muted-foreground mt-2"
+                      >
+                        JPG, PNG up to 2MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-lg border bg-card text-card-foreground shadow-sm"
+                >
+                  <div
+                    class="flex flex-col space-y-1.5 p-6"
+                  >
+                    <h3
+                      class="font-semibold tracking-tight text-base flex items-center gap-2"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="lucide lucide-file-text w-4 h-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                       ...
+
+      466 |       render(<VolunteerProfilePage />);
+      467 |
+    > 468 |       await waitFor(() => {
+          |                    ^
+      469 |         expect(screen.getByText('80%')).toBeInTheDocument();
+      470 |       });
+      471 |
+
+      at waitForWrapper (node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:163:27)
+      at Object.<anonymous> (__tests__/integration/profile-save.test.tsx:468:20)
+
+Test Suites: 1 failed, 1 total
+Tests:       7 failed, 9 passed, 16 total
+Snapshots:   0 total
+Time:        16.731 s
+Ran all test suites matching profile-save.test.tsx.
+ΓÇëELIFECYCLEΓÇë Test failed. See above for more details.
