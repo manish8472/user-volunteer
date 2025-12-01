@@ -25,9 +25,9 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
             {isAuthenticated && user?.role === 'volunteer' && (
               <>
-                <NavLink href="/opportunities">Browse Opportunities</NavLink>
-                <NavLink href="/volunteer/dashboard">My Dashboard</NavLink>
-                <NavLink href="/volunteer/applications">My Applications</NavLink>
+                <NavLink href="/jobs">Browse Opportunities</NavLink>
+                <NavLink href="/dashboard">My Dashboard</NavLink>
+                <NavLink href="/dashboard/volunteer/applications">My Applications</NavLink>
               </>
             )}
 
@@ -41,7 +41,7 @@ export default function Header() {
 
             {!isAuthenticated && (
               <>
-                <NavLink href="/opportunities">Browse Opportunities</NavLink>
+                <NavLink href="/jobs">Browse Opportunities</NavLink>
                 <NavLink href="/about">About</NavLink>
                 <NavLink href="/contact">Contact</NavLink>
               </>
@@ -145,13 +145,13 @@ export default function Header() {
             <nav className="flex flex-col gap-3">
               {isAuthenticated && user?.role === 'volunteer' && (
                 <>
-                  <NavLink href="/opportunities" className="px-3 py-2 rounded-lg">
+                  <NavLink href="/jobs" className="px-3 py-2 rounded-lg">
                     Browse Opportunities
                   </NavLink>
-                  <NavLink href="/volunteer/dashboard" className="px-3 py-2 rounded-lg">
+                  <NavLink href="/dashboard" className="px-3 py-2 rounded-lg">
                     My Dashboard
                   </NavLink>
-                  <NavLink href="/volunteer/applications" className="px-3 py-2 rounded-lg">
+                  <NavLink href="/dashboard/volunteer/applications" className="px-3 py-2 rounded-lg">
                     My Applications
                   </NavLink>
                 </>
@@ -173,7 +173,7 @@ export default function Header() {
 
               {!isAuthenticated && (
                 <>
-                  <NavLink href="/opportunities" className="px-3 py-2 rounded-lg">
+                  <NavLink href="/jobs" className="px-3 py-2 rounded-lg">
                     Browse Opportunities
                   </NavLink>
                   <NavLink href="/about" className="px-3 py-2 rounded-lg">

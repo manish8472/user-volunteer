@@ -42,6 +42,8 @@ export const viewport = {
   maximumScale: 5,
 };
 
+import { Toaster } from "@/components/ui/toaster";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,6 +56,7 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         <Providers>
           <AppShell>{children}</AppShell>
+          <Toaster />
           {isDevelopment && <AuthDebugger />}
         </Providers>
       </body>

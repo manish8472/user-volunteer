@@ -30,7 +30,7 @@ export default function Home() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-4">
                 <Link
-                  href="/opportunities"
+                  href="/jobs"
                   className="h-12 px-8 rounded-xl bg-primary hover:bg-primary-dark text-white font-semibold shadow-lg shadow-primary/25 transition-all transform hover:-translate-y-0.5 inline-flex items-center justify-center"
                 >
                   Browse Opportunities

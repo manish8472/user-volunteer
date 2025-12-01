@@ -43,6 +43,11 @@ export default function DashboardPage() {
                 <button className="w-full text-left px-4 py-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors">
                   Edit Profile
                 </button>
+                {user?.role === 'volunteer' && (
+                  <a href="/dashboard/volunteer/applications" className="block w-full text-left px-4 py-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors">
+                    My Applications
+                  </a>
+                )}
                 <button className="w-full text-left px-4 py-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors">
                   Change Password
                 </button>
