@@ -13,17 +13,36 @@ interface RegisterVolunteerData {
   password: string;
   confirmPassword: string;
   phone?: string;
+  location: {
+    city: string;
+    state: string;
+    country: string;
+  };
 }
 
 interface RegisterNgoData {
-  organizationName: string;
+  name: string; // Changed from organizationName
   email: string;
   password: string;
   confirmPassword: string;
-  phone?: string;
+  phone?: string; // This will be used for contactPerson.phone
   website?: string;
-  description?: string;
+  description: string;
   registrationNumber?: string;
+  slug: string;
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    postalCode: string;
+    country: string;
+  };
+  contactPerson: {
+    name: string;
+    email: string;
+    phone: string;
+    designation: string;
+  };
   documents?: File[];
 }
 

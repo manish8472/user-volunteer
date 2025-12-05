@@ -31,6 +31,9 @@ export const volunteerSignupSchema = z
     password: passwordSchema,
     confirmPassword: z.string(),
     phone: phoneSchema,
+    city: z.string().min(1, 'City is required'),
+    state: z.string().min(1, 'State is required'),
+    country: z.string().min(1, 'Country is required'),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",
@@ -52,8 +55,21 @@ export const ngoSignupSchema = z
       .url('Invalid URL')
       .optional()
       .or(z.literal('')),
-    description: z.string().min(10, 'Description must be at least 10 characters').optional(),
+    description: z.string().min(10, 'Description must be at least 10 characters'),
     registrationNumber: z.string().optional(),
+    
+    // Address
+    street: z.string().min(1, 'Street address is required'),
+    city: z.string().min(1, 'City is required'),
+    state: z.string().min(1, 'State is required'),
+    postalCode: z.string().min(1, 'Postal code is required'),
+    country: z.string().min(1, 'Country is required'),
+
+    // Contact Person
+    contactName: z.string().min(2, 'Contact person name is required'),
+    contactEmail: emailSchema,
+    contactPhone: phoneSchema,
+    contactDesignation: z.string().min(1, 'Designation is required'),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",

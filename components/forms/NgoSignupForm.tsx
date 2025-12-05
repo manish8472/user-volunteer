@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ngoSignupSchema, NgoSignupFormData } from '@/lib/validations/auth.schema';
 import { registerNgo, startGoogleOauth } from '@/services/auth.api';
+import { sendOtp } from '@/services/otp.api';
 import { useAuthStore } from '@/stores/authStore';
 import { FormInput } from '@/components/ui/form-input';
 import { FormTextarea } from '@/components/ui/form-textarea';
@@ -39,20 +40,59 @@ export const NgoSignupForm = ({
       setIsLoading(true);
       setApiError('');
 
-      // Note: File upload will be handled in module 7 with signed URL flow
-      // For now, we'll register without uploading documents
-      const response = await registerNgo({
-        ...data,
-        documents: documentFiles.length > 0 ? documentFiles : undefined,
+      // Send OTP to email
+      await sendOtp({
+        email: data.email.toLowerCase(),
+        purpose: 'signup',
       });
-      
-      setAuth(response.accessToken, response.user);
 
-      onSuccess?.();
-      router.push(redirectTo);
+      // Generate slug from organization name
+      const slug = data.organizationName
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)+/g, '');
+
+      // Store signup data in session storage (without files - they can't be serialized)
+      const signupData = {
+        name: data.organizationName,
+        email: data.email,
+        password: data.password,
+        confirmPassword: data.confirmPassword,
+        phone: data.phone,
+        website: data.website,
+        description: data.description,
+        registrationNumber: data.registrationNumber,
+        slug,
+        address: {
+          street: data.street,
+          city: data.city,
+          state: data.state,
+          postalCode: data.postalCode,
+          country: data.country,
+        },
+        contactPerson: {
+          name: data.contactName,
+          email: data.contactEmail,
+          phone: data.contactPhone || data.phone || '',
+          designation: data.contactDesignation,
+        },
+      };
+      
+      sessionStorage.setItem('pendingSignup', JSON.stringify(signupData));
+      sessionStorage.setItem('pendingEmail', data.email.toLowerCase());
+      sessionStorage.setItem('pendingUserType', 'ngo');
+      
+      // Note: Documents will need to be re-uploaded after OTP verification
+      // Or we could convert to base64 and store (for small files)
+      if (documentFiles.length > 0) {
+        sessionStorage.setItem('pendingDocumentsNote', 'true');
+      }
+
+      // Redirect to OTP verification page
+      router.push('/auth/verify-otp');
     } catch (error: any) {
       const message =
-        error.response?.data?.message || 'Registration failed. Please try again.';
+        error.response?.data?.message || 'Failed to send OTP. Please try again.';
       setApiError(message);
     } finally {
       setIsLoading(false);
@@ -147,6 +187,90 @@ export const NgoSignupForm = ({
             error={errors.description?.message}
             {...register('description')}
           />
+
+          <div className="border-t border-gray-200 pt-5 mt-5">
+            <h3 className="text-lg font-medium text-gray-900 mb-4">Address Details</h3>
+            <div className="space-y-5">
+              <FormInput
+                label="Street Address"
+                type="text"
+                placeholder="123 NGO St"
+                error={errors.street?.message}
+                {...register('street')}
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <FormInput
+                  label="City"
+                  type="text"
+                  placeholder="City"
+                  error={errors.city?.message}
+                  {...register('city')}
+                />
+                <FormInput
+                  label="State"
+                  type="text"
+                  placeholder="State"
+                  error={errors.state?.message}
+                  {...register('state')}
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <FormInput
+                  label="Postal Code"
+                  type="text"
+                  placeholder="Postal Code"
+                  error={errors.postalCode?.message}
+                  {...register('postalCode')}
+                />
+                <FormInput
+                  label="Country"
+                  type="text"
+                  placeholder="Country"
+                  defaultValue="India"
+                  error={errors.country?.message}
+                  {...register('country')}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-200 pt-5 mt-5">
+            <h3 className="text-lg font-medium text-gray-900 mb-4">Contact Person Details</h3>
+            <div className="space-y-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <FormInput
+                  label="Contact Name"
+                  type="text"
+                  placeholder="Full Name"
+                  error={errors.contactName?.message}
+                  {...register('contactName')}
+                />
+                <FormInput
+                  label="Designation"
+                  type="text"
+                  placeholder="e.g. Director, Manager"
+                  error={errors.contactDesignation?.message}
+                  {...register('contactDesignation')}
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <FormInput
+                  label="Contact Email"
+                  type="email"
+                  placeholder="contact@example.com"
+                  error={errors.contactEmail?.message}
+                  {...register('contactEmail')}
+                />
+                <FormInput
+                  label="Contact Phone"
+                  type="tel"
+                  placeholder="+1234567890"
+                  error={errors.contactPhone?.message}
+                  {...register('contactPhone')}
+                />
+              </div>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <FormInput

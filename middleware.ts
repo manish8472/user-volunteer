@@ -1,39 +1,29 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-// Define routes that require authentication
-const protectedRoutes = ['/dashboard', '/profile', '/settings'];
-
 // Define routes that are only for unauthenticated users
 const authRoutes = ['/auth/login', '/auth/signup', '/auth/forgot-password'];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
-  // Get the access token from cookies
-  // Note: Ensure your backend sets this cookie, or use a client-side approach if using local storage only
-  // For this template, we'll check for the cookie presence
-  const accessToken = request.cookies.get('accessToken')?.value;
+  // NOTE: We do NOT check for authentication in middleware because:
+  // 1. AccessToken is stored in localStorage (client-side only), not cookies
+  // 2. Server only sets refresh_token cookie (different from accessToken)
+  // 3. Middleware runs on server/edge and cannot access localStorage
+  // 4. Client-side AuthGuard component handles route protection
+  // 5. All API endpoints are protected by JWT verification on backend
   
-  // Check if the current route is protected
-  const isProtectedRoute = protectedRoutes.some(route => 
-    pathname.startsWith(route)
-  );
+  // Get the refresh token from cookies (only used for auth page redirect)
+  const refreshToken = request.cookies.get('refresh_token')?.value;
   
   const isAuthRoute = authRoutes.some(route => 
     pathname.startsWith(route)
   );
 
-  // Redirect to login if trying to access protected route without token
-  if (isProtectedRoute && !accessToken) {
-    const loginUrl = new URL('/auth/login', request.url);
-    // Add return URL so user is redirected back after login
-    loginUrl.searchParams.set('returnUrl', pathname);
-    return NextResponse.redirect(loginUrl);
-  }
-
   // Redirect to dashboard if already authenticated and trying to access auth pages
-  if (isAuthRoute && accessToken) {
+  // We use refresh_token cookie as indicator of authentication
+  if (isAuthRoute && refreshToken) {
     return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 

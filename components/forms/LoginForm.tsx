@@ -34,12 +34,23 @@ export const LoginForm = ({ onSuccess, redirectTo = '/dashboard' }: LoginFormPro
       setIsLoading(true);
       setApiError('');
 
+      console.log('Login attempt...', data.email);
       const response = await login(data);
+      console.log('Login response received:', response);
+      
       setAuth(response.accessToken, response.user);
+      console.log('Auth state updated');
+
+      // Small delay to ensure localStorage is updated by persist middleware
+      await new Promise(resolve => setTimeout(resolve, 100));
+      console.log('Auth persisted to localStorage');
 
       onSuccess?.();
+      
+      console.log('Redirecting to:', redirectTo);
       router.push(redirectTo);
     } catch (error: any) {
+      console.error('Login error:', error);
       const message = error.response?.data?.message || 'Login failed. Please try again.';
       setApiError(message);
     } finally {

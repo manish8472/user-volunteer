@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { volunteerSignupSchema, VolunteerSignupFormData } from '@/lib/validations/auth.schema';
 import { registerVolunteer, startGoogleOauth } from '@/services/auth.api';
+import { sendOtp } from '@/services/otp.api';
 import { useAuthStore } from '@/stores/authStore';
 import { FormInput } from '@/components/ui/form-input';
 import { Button } from '@/components/ui/button';
@@ -37,14 +38,35 @@ export const VolunteerSignupForm = ({
       setIsLoading(true);
       setApiError('');
 
-      const response = await registerVolunteer(data);
-      setAuth(response.accessToken, response.user);
+      // Send OTP to email
+      await sendOtp({
+        email: data.email.toLowerCase(),
+        purpose: 'signup',
+      });
 
-      onSuccess?.();
-      router.push(redirectTo);
+      // Store signup data in session storage
+      const signupData = {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        confirmPassword: data.confirmPassword,
+        phone: data.phone,
+        location: {
+          city: data.city,
+          state: data.state,
+          country: data.country,
+        },
+      };
+      
+      sessionStorage.setItem('pendingSignup', JSON.stringify(signupData));
+      sessionStorage.setItem('pendingEmail', data.email.toLowerCase());
+      sessionStorage.setItem('pendingUserType', 'volunteer');
+
+      // Redirect to OTP verification page
+      router.push('/auth/verify-otp');
     } catch (error: any) {
       const message =
-        error.response?.data?.message || 'Registration failed. Please try again.';
+        error.response?.data?.message || 'Failed to send OTP. Please try again.';
       setApiError(message);
     } finally {
       setIsLoading(false);
@@ -118,6 +140,31 @@ export const VolunteerSignupForm = ({
             error={errors.confirmPassword?.message}
             {...register('confirmPassword')}
           />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <FormInput
+              label="City"
+              type="text"
+              placeholder="City"
+              error={errors.city?.message}
+              {...register('city')}
+            />
+            <FormInput
+              label="State"
+              type="text"
+              placeholder="State"
+              error={errors.state?.message}
+              {...register('state')}
+            />
+            <FormInput
+              label="Country"
+              type="text"
+              placeholder="Country"
+              defaultValue="India"
+              error={errors.country?.message}
+              {...register('country')}
+            />
+          </div>
 
           <div className="flex items-start">
             <input

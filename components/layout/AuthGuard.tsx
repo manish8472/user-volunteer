@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
-import { UserRole } from '@/stores/authStore';
+import { useAuthStore, UserRole } from '@/stores/authStore';
 
 interface AuthGuardProps {
   children: React.ReactNode;
@@ -53,112 +53,101 @@ export const AuthGuard: React.FC<AuthGuardProps> = ({
 }) => {
   const router = useRouter();
   const pathname = usePathname();
-  const { user, isAuthenticated, refresh, isRefreshing } = useAuth();
-  const [authChecked, setAuthChecked] = useState(false);
-  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const checkAuth = async () => {
-      // If user is not in store, try to refresh from server
-      if (!user && !isAuthenticated) {
-        try {
-          await refresh();
-        } catch (error) {
-          // Refresh failed, user is not authenticated
-          console.log('Auth refresh failed:', error);
+    // 1. Check localStorage directly
+    const storedAuth = localStorage.getItem('auth-storage');
+    
+    if (!storedAuth) {
+      console.log('AuthGuard: No auth storage found, redirecting to login');
+      const returnUrl = pathname !== redirectTo ? pathname : '/';
+      router.replace(`${redirectTo}?returnUrl=${encodeURIComponent(returnUrl)}`);
+      setIsAuthorized(false);
+      return;
+    }
+
+    try {
+      const parsed = JSON.parse(storedAuth);
+      const { state } = parsed;
+      
+      // 2. Check if we have a user and token
+      if (!state || !state.user || !state.accessToken) {
+        console.log('AuthGuard: Invalid auth state, redirecting to login');
+        const returnUrl = pathname !== redirectTo ? pathname : '/';
+        router.replace(`${redirectTo}?returnUrl=${encodeURIComponent(returnUrl)}`);
+        setIsAuthorized(false);
+        return;
+      }
+
+      // 3. Check roles if required
+      if (authorize && authorize.length > 0) {
+        const userRole = state.user.role;
+        if (!authorize.includes(userRole)) {
+          console.log('AuthGuard: Insufficient permissions');
+          setIsAuthorized(false); // Will show forbidden component
+          return;
         }
       }
-      setAuthChecked(true);
-    };
 
-    checkAuth();
-  }, [user, isAuthenticated, refresh]);
-
-  useEffect(() => {
-    // Only run authorization checks after initial auth check is complete
-    if (!authChecked) {
-      return;
-    }
-
-    // If user is not authenticated, redirect to login
-    if (!user || !isAuthenticated) {
-      // Save the current path to redirect back after login
-      const returnUrl = pathname !== redirectTo ? pathname : '/';
-      const loginUrl = `${redirectTo}?returnUrl=${encodeURIComponent(returnUrl)}`;
-      router.replace(loginUrl);
-      return;
-    }
-
-    // If no role requirements, user is authorized
-    if (!authorize || authorize.length === 0) {
+      // 4. Success
       setIsAuthorized(true);
-      return;
+
+    } catch (e) {
+      console.error('AuthGuard: Error parsing auth storage', e);
+      router.replace(redirectTo);
+      setIsAuthorized(false);
     }
+  }, [pathname, redirectTo, authorize, router]);
 
-    // Check if user has one of the required roles
-    const hasRequiredRole = user.role && authorize.includes(user.role);
-    setIsAuthorized(!!hasRequiredRole);
-  }, [authChecked, user, isAuthenticated, authorize, router, pathname, redirectTo]);
-
-  // Show loading state while checking auth or refreshing
-  if (!authChecked || isRefreshing) {
-    if (loadingComponent) {
-      return <>{loadingComponent}</>;
-    }
-
-    return (
+  // Show loading while checking
+  if (isAuthorized === null) {
+    return loadingComponent ? <>{loadingComponent}</> : (
       <div className="flex items-center justify-center min-h-screen bg-background">
         <div className="flex flex-col items-center gap-4">
           <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-muted-foreground">Checking authentication...</p>
+          <p className="text-muted-foreground">Loading...</p>
         </div>
       </div>
     );
   }
 
-  // If user is authenticated but not authorized (role mismatch)
-  if (authChecked && user && isAuthenticated && !isAuthorized) {
-    if (forbiddenComponent) {
-      return <>{forbiddenComponent}</>;
-    }
+  // Show forbidden if authorized is false but we have a user (role mismatch)
+  // Note: If we redirected, this might briefly flash, but that's okay.
+  // We can improve this by checking if we redirected.
+  if (isAuthorized === false) {
+     // If we are here, it means we either redirected (so this unmounts soon)
+     // OR we have a role mismatch.
+     // Let's check if we have a user to decide if it's a role mismatch or just not logged in.
+     const storedAuth = localStorage.getItem('auth-storage');
+     let hasUser = false;
+     try {
+        if(storedAuth) {
+            const parsed = JSON.parse(storedAuth);
+            if(parsed.state?.user) hasUser = true;
+        }
+     } catch {}
 
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-background">
-        <div className="max-w-md p-8 space-y-4 text-center">
-          <div className="w-16 h-16 mx-auto bg-danger/10 rounded-full flex items-center justify-center">
-            <svg
-              className="w-8 h-8 text-danger"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-              />
-            </svg>
-          </div>
-          <h1 className="text-2xl font-bold text-foreground">Access Denied</h1>
-          <p className="text-muted-foreground">
-            You don't have permission to access this page. Please contact your administrator if you believe this is an error.
-          </p>
-          <div className="pt-4">
-            <button
-              onClick={() => router.push('/')}
-              className="px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-            >
-              Go to Home
-            </button>
-          </div>
-        </div>
-      </div>
-    );
+     if (hasUser && forbiddenComponent) {
+         return <>{forbiddenComponent}</>;
+     } else if (hasUser) {
+         return (
+            <div className="flex items-center justify-center min-h-screen bg-background">
+                <div className="text-center">
+                    <h1 className="text-2xl font-bold">Access Denied</h1>
+                    <p>You do not have permission to view this page.</p>
+                    <button onClick={() => router.push('/')} className="mt-4 px-4 py-2 bg-primary text-white rounded">Go Home</button>
+                </div>
+            </div>
+         );
+     }
+     
+     return null; // Don't render anything while redirecting
   }
 
-  // User is authenticated and authorized
   return <>{children}</>;
 };
+
+
 
 export default AuthGuard;
